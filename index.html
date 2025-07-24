@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Vacíos - Recepción y Envíos</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="login-active">
+  <!-- LOGIN MODAL -->
+  <div id="login-overlay" style="position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.55);z-index:200000;display:flex;align-items:center;justify-content:center;">
+    <div style="background:#fff;padding:40px 32px 24px 32px;border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.18);min-width:320px;max-width:90vw;display:flex;flex-direction:column;align-items:center;">
+      <h2 style="text-align:center;margin-top:0;color:#2980b9;">Acceso al Sistema</h2>
+      <form id="login-form" style="width:100%;max-width:340px;">
+        <div style="margin-bottom:28px;">
+          <label style="display:block;font-weight:bold;margin-bottom:8px;">Usuario</label>
+          <input type="text" id="login-usuario" style="width:100%;padding:10px;border-radius:6px;border:1px solid #ccc;font-size:1em;">
+        </div>
+        <div style="margin-bottom:28px;">
+          <label style="display:block;font-weight:bold;margin-bottom:8px;">Contraseña</label>
+          <input type="password" id="login-password" style="width:100%;padding:10px;border-radius:6px;border:1px solid #ccc;font-size:1em;">
+        </div>
+        <button type="submit" style="width:100%;background:#2980b9;color:#fff;padding:9px 0 8px 0;border:none;border-radius:6px;font-size:1em;font-weight:bold;cursor:pointer;letter-spacing:1px;">Ingresar</button>
+        <div id="login-error" style="color:#e74c3c;text-align:center;margin-top:12px;display:none;font-weight:bold;"></div>
+      </form>
+      <div style="width:100%;text-align:center;margin-top:32px;font-size:1em;color:#2980b9;letter-spacing:0.5px;">
+        © Derechos reservados | Hecho con <span style='color:#e74c3c;font-size:1.2em;'>&hearts;</span> por FLINOZ
+      </div>
+    </div>
+  </div>
+
+  <!-- Botón de salir y usuario activo -->
+  <div id="usuario-bar" style="position:fixed;top:24px;right:32px;z-index:1000;display:flex;align-items:center;gap:18px;">
+    <span id="usuario-activo" style="background:#f4f8fb;color:#2980b9;padding:7px 16px;border-radius:6px;font-weight:bold;font-size:1em;display:none;"></span>
+    <button id="btn-logout" style="background:#e74c3c;color:#fff;padding:10px 22px;border:none;border-radius:8px;font-size:1em;font-weight:bold;box-shadow:0 2px 8px rgba(0,0,0,0.08);cursor:pointer;">Salir</button>
+  </div>
+
+  <h1>Asignación de Vacío Semanal RYE</h1>
+
+  <section>
+    <h2>Gestión de Personal</h2>
+    <div class="fecha-selector" style="margin-bottom: 12px;">
+      <label>Fecha inicial: <input type="date" id="fecha-inicio"></label>
+      <label>Fecha final: <input type="date" id="fecha-fin"></label>
+    </div>
+    <form id="form-personal">
+      <input type="text" id="nombre" placeholder="Nombre completo" required>
+      <select id="descanso" required>
+        <option value="">Día de descanso</option>
+        <option>Lunes</option>
+        <option>Martes</option>
+        <option>Miércoles</option>
+        <option>Jueves</option>
+        <option>Viernes</option>
+        <option>Sábado</option>
+        <option>Domingo</option>
+      </select>
+      <button type="submit">Agregar / Actualizar</button>
+    </form>
+    <ul id="lista-personal"></ul>
+    <button id="asignar-vacio" style="margin-top:18px;">Generar asignación</button>
+  </section>
+
+  <section>
+    <h2 id="titulo-historial">Historial de Semanas (<span id="mes-actual"></span>)</h2>
+    <ul id="historial"></ul>
+  </section>
+  
+
+  <script src="script.js"></script>
+
+  <div style="width:100%;text-align:center;margin-top:32px;font-size:1em;color:#e74c3c;letter-spacing:0.5px;">
+    © Derechos reservados | Hecho con <span style='color:#00FF00;font-size:1.2em;'>&hearts;</span> por FLINOZ
+  </div>
+</body>
+</html>

@@ -1,0 +1,202 @@
+body {
+  font-family: Arial, sans-serif;
+  background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80') no-repeat center center fixed;
+  background-size: cover;
+  margin: 0;
+  padding: 20px;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(255,255,255,0.75);
+  z-index: 0;
+  pointer-events: none;
+}
+
+section, #notificacion {
+  position: relative;
+  z-index: 1;
+}
+
+h1, h2 {
+  text-align: center;
+  color: #333;
+}
+
+section {
+  background: #fff;
+  padding: 20px;
+  margin-bottom: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+input, select, button {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin: 6px 0;
+  padding: 8px;
+  background: #f9f9f9;
+  border-left: 5px solid #2a9d8f;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+li span {
+  flex-grow: 1;
+}
+
+li button {
+  margin-left: 5px;
+  padding: 5px 10px;
+  font-size: 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button.edit { background: #f4a261; color: white; }
+button.delete { background: #e76f51; color: white; }
+button.change { background: #2a9d8f; color: white; }
+
+/* Notificación flotante mejorada */
+#notificacion {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+  transition: opacity 0.3s;
+  position: fixed !important;
+  top: 0 !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  border-radius: 0 0 12px 12px !important;
+  min-width: 320px;
+  max-width: 90vw;
+  text-align: center;
+  font-size: 1.2em;
+  z-index: 99999 !important;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 32px;
+}
+#notificacion span {
+  display: inline-block;
+}
+
+/* Tabla de historial */
+#historial table {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 10px;
+  font-size: 1em;
+}
+#historial th, #historial td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+#historial th {
+  background: #2980b9;
+  color: #fff;
+}
+#historial tr:nth-child(even) {
+  background: #f4f8fb;
+}
+#historial tr:hover {
+  background: #eaf1fb;
+}
+#historial button {
+  background: #2980b9;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 10px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background 0.2s;
+}
+#historial button:hover {
+  background: #1c5d99;
+}
+
+/* Overlay de login profesional */
+#login-overlay {
+  backdrop-filter: blur(4px);
+  background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80') no-repeat center center fixed, rgba(0,0,0,0.55);
+  background-size: cover;
+}
+#login-overlay > div {
+  position: relative;
+  z-index: 1;
+}
+#login-overlay form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+#login-overlay label {
+  font-weight: bold;
+  margin-bottom: 7px;
+  color: #2980b9;
+  letter-spacing: 0.5px;
+}
+#login-overlay input[type="text"], #login-overlay input[type="password"] {
+  background: #f4f8fb;
+  border: 1px solid #b3c6e0;
+  border-radius: 6px;
+  padding: 11px 12px;
+  font-size: 1em;
+  margin-bottom: 0;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+#login-overlay input[type="text"]:focus, #login-overlay input[type="password"]:focus {
+  border: 1.5px solid #2980b9;
+  outline: none;
+  box-shadow: 0 0 0 2px #b3c6e0;
+}
+#login-overlay button[type="submit"] {
+  width: 100%;
+  background: linear-gradient(90deg, #2980b9 60%, #1abc9c 100%);
+  color: #fff;
+  padding: 8px 0 7px 0;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  letter-spacing: 1px;
+  box-shadow: 0 2px 8px rgba(41,128,185,0.08);
+  transition: background 0.2s, transform 0.15s;
+}
+#login-overlay button[type="submit"]:hover {
+  background: linear-gradient(90deg, #1c5d99 60%, #16a085 100%);
+  transform: translateY(-2px) scale(1.03);
+}
+
+body.login-active > *:not(#login-overlay) {
+  display: none !important;
+}
+body.login-active {
+  overflow: hidden !important;
+}
